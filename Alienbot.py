@@ -21,8 +21,8 @@ class AlienBot:
 
     def __init__(self):
         self.alienbabble = {'describe_planet_intent': r'.*\s*your planet.*',
-                            'answer_why_intent': r'.*\s*why are you.*',
-                            'cubed_intent': r''
+                            'answer_why_intent': r'why are you.*',
+                            'cubed_intent': r'.*cube.* (\d+)'
                             }
 
     # Define .greet() below:
@@ -56,6 +56,10 @@ class AlienBot:
                 return self.describe_planet_intent()
             elif found_match and intent == 'answer_why_intent':
                 return self.answer_why_intent()
+            elif found_match and intent == 'cubed_intent':
+                return self.cubed_intent(found_match.group()[0])
+            else:
+                self.no_match_intent()
 
     # Define .describe_planet_intent():
     def describe_planet_intent(self):
@@ -65,17 +69,30 @@ class AlienBot:
 
     # Define .answer_why_intent():
     def answer_why_intent(self):
-        return "Inside .answer_why_intent()"
+        responses = ("I come in peace.", "I am here to collect data on your planet and its inhabitants. ",
+                     "I heard the cofee is good.")
+        random.choice(responses)
 
     # Define .cubed_intent():
     def cubed_intent(self, number):
-        return "Inside .cubed_intent()"
+        number = int(number)
+        cubed_number = number * number * number
+        return f"The cube of {number} is {cubed_number}. Isn't that cool? "
 
     # Define .no_match_intent():
     def no_match_intent(self):
-        return "Inside .no_match_intent()"
+        responses = ("Please tell me more.", "Tell me more! ", "Why do you say that? ", "I see. Can you elaborate? ",
+                     "Interesting. Can you tell me more? ", "I see. How do you think? ", "Why? ",
+                     "How do you think I feel when you say that? ")
+        return random.choice(responses)
 
 
 # Create an instance of AlienBot below:
 alien = AlienBot()
 alien.greet()
+
+# Some ideas to expand the project:
+# Add some more responses to your current intents.
+# Try adding more intents.
+# Try to capture other types of entities and use them to broaden the conversation.
+# Add in reflections.
