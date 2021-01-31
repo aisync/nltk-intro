@@ -2,7 +2,7 @@ import codecademylib3_seaborn
 import pandas as pd
 from sklearn.feature_extraction.text import TfidfTransformer
 from term_frequency import term_frequencies, feature_names, df_term_frequencies
-dd 
+
 # display term-document matrix of term frequencies
 print(df_term_frequencies)
 
