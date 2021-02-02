@@ -21,5 +21,5 @@ def get_part_of_speech(word):
 def preprocess_text(text):
   cleaned = re.sub(r'\W+', ' ', text).lower()
   tokenized = word_tokenize(cleaned)
-  normalized = [normalizer.lemmatize(token, get_part_of_speech(token)) for token in tokenized]
+  normalized = " ".join([normalizer.lemmatize(token, get_part_of_speech(token)) for token in tokenized])
   return normalized
