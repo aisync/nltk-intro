@@ -1,3 +1,4 @@
+## PART II:
 import codecademylib3_seaborn
 import pandas as pd
 from sklearn.feature_extraction.text import TfidfTransformer
@@ -20,7 +21,7 @@ except:
 
 
  ## Part I: ############################
- import codecademylib3_seaborn
+import codecademylib3_seaborn
 import pandas as pd
 from sklearn.feature_extraction.text import CountVectorizer
 from preprocessing import preprocess_text
